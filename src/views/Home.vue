@@ -23,30 +23,30 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        newItemTitle: "",
-        todos: [
-        ],
-      };
+// import axios from "axios";
+
+export default {
+  data() {
+    return {
+      newItemTitle: "",
+      todos: [],
+      id: 0,
+    };
+  },
+  methods: {
+    addTodo() {
+      this.todos.push(this.newItemTitle);
+      this.newItemTitle = "";
     },
-    methods: {
-      addTodo() {
-        if (this.newItemTitle) {
-          this.todos.push(this.newItemTitle);
-          this.newItemTitle = "";
-        }
-      },
-      changeTodo(item) {
-        item.state = item.state ? 0 : 1
-      },
-      deleteTodo (item) {
-        var index = this.todos.indexOf(item);
-        this.todos.splice(index, 1);
-      }
+    changeTodo(item) {
+      item.state = item.state ? 0 : 1
+    },
+    deleteTodo (item) {
+      var index = this.todos.indexOf(item);
+      this.todos.splice(index, 1);
     }
-  };
+  },
+};
 </script>
 
 <style scoped>
